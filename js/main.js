@@ -16,7 +16,7 @@ $("#close-btn").click(function () {
 // Singer Section
 // Singer Section
 $(".head-text").click(function () {
-  $(this).next().slideToggle(100); // تقليل مدة الرسوم المتحركة إلى 100 ملي ثانية
+  $(this).next().slideToggle(300); // تقليل مدة الرسوم المتحركة إلى 100 ملي ثانية
 });
 
 // Singer Section
