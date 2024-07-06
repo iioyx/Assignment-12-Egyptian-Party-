@@ -1,22 +1,23 @@
 // Side Nav
 $("#side-btn").click(function () {
-  $(".left").css({ width: "250px" });
-  $("#side-btn").css({ left: "250px" });
-  $(".head-text").css({ left: "120px" });
+  $(".left").animate({ width: "250px" }, 100);
+  $("#side-btn").animate({ left: "250px" }, 100);
+  $(".head-text").animate({ left: "120px" }, 270);
 });
 
 $("#close-btn").click(function () {
-  $(".left").css({ width: "0px" });
-  $("#side-btn").css({ left: "0px" });
-  $(".head-text").css({ left: "0px" });
+  $(".left").animate({ width: "0px" }, 100);
+  $("#side-btn").animate({ left: "0px" }, 100);
+  $(".head-text").animate({ left: "0px" }, 270);
 });
 // Side Nav
 
 
 // Singer Section
-// Singer Section
+
+
 $(".head-text").click(function () {
-  $(this).next().slideToggle(300); // تقليل مدة الرسوم المتحركة إلى 100 ملي ثانية
+  $(this).next().slideToggle(300); 
 });
 
 // Singer Section
