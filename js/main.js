@@ -1,4 +1,5 @@
 // Side Nav
+
 $("#side-btn").click(function () {
   $(".left").animate({ width: "250px" }, 100);
   $("#side-btn").animate({ left: "250px" }, 100);
@@ -10,14 +11,19 @@ $("#close-btn").click(function () {
   $("#side-btn").animate({ left: "0px" }, 100);
   $(".head-text").animate({ left: "0px" }, 270);
 });
-// Side Nav
 
+$(".left a").click(function () {
+  let Sectionid = $(this).attr("href");
+  let SectionTop = $(Sectionid).offset().top;
+  $("html,body").animate({ scrollTop: SectionTop }, 300);
+});
+
+// Side Nav
 
 // Singer Section
 
-
 $(".head-text").click(function () {
-  $(this).next().slideToggle(300); 
+  $(this).next().slideToggle(300);
 });
 
 // Singer Section
@@ -66,7 +72,10 @@ $("#Message").keyup(function () {
   if (LeftChar <= 0) {
     $(".left-char").html("You have reached limited characters!");
   } else {
-    $(".left-char").html(`<span class = "fs-5 text-danger">${LeftChar}</span>` + " Character Reamining");
+    $(".left-char").html(
+      `<span class = "fs-5 text-danger">${LeftChar}</span>` +
+        " Character Reamining"
+    );
   }
 });
 
