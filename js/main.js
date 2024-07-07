@@ -22,8 +22,9 @@ $(".left a").click(function () {
 
 // Singer Section
 
-$(".head-text").click(function () {
-  $(this).next().slideToggle(300);
+$(".singer").on("click", function (e) {
+  $(".info").not($(e.target).next()).slideUp(500);
+  $(e.target).next().slideToggle(500);
 });
 
 // Singer Section
@@ -31,30 +32,36 @@ $(".head-text").click(function () {
 // Time Section
 
 function StartCountDown(Enddate) {
-  let FutureDate = new Date(Enddate);
-  FutureDate = FutureDate.getTime() / 1000;
+  const counter = setInterval(function () {
+    let FutureDate = new Date(Enddate);
+    FutureDate = FutureDate.getTime() / 1000;
 
-  let Timenow = new Date();
-  Timenow = Timenow.getTime() / 1000;
+    let Timenow = new Date();
+    Timenow = Timenow.getTime() / 1000;
 
-  let TimeLeft = FutureDate - Timenow;
+    let TimeLeft = FutureDate - Timenow;
 
-  let days = Math.floor(TimeLeft / (24 * 60 * 60));
-  let hours = Math.floor((TimeLeft - days * (24 * 60 * 60)) / 3600);
-  let minutes = Math.floor(
-    (TimeLeft - days * (24 * 60 * 60) - hours * 3600) / 60
-  );
-  let seconds = Math.floor(
-    TimeLeft - days * (24 * 60 * 60) - hours * 3600 - minutes * 60
-  );
+    let days = Math.floor(TimeLeft / (24 * 60 * 60));
+    let hours = Math.floor((TimeLeft - days * (24 * 60 * 60)) / 3600);
+    let minutes = Math.floor(
+      (TimeLeft - days * (24 * 60 * 60) - hours * 3600) / 60
+    );
+    let seconds = Math.floor(
+      TimeLeft - days * (24 * 60 * 60) - hours * 3600 - minutes * 60
+    );
 
-  $(".days").html(`${days} D`);
-  $(".hours").html(`${hours} h`);
-  $(".minutes").html(`${minutes} m`);
-  $(".seconds").html(`${seconds} s`);
+    $(".days").html(`${days} D`);
+    $(".hours").html(`${hours} h`);
+    $(".minutes").html(`${minutes} m`);
+    $(".seconds").html(`${seconds} s`);
 
-  setInterval(function () {
-    StartCountDown(Enddate);
+    if (TimeLeft < 0) {
+      clearInterval(counter);
+      $(".days").html(`Next`);
+      $(".hours").html(`Event`);
+      $(".minutes").html(`Time`);
+      $(".seconds").html(`Soon..`);
+    }
   }, 1000);
 }
 

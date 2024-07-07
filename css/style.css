@@ -83,12 +83,19 @@ header {
 
 /* Signers */
 
-.head-text {
-  background-color: rgba(214, 46, 51, 0.6);
+.singer {
+  padding: 0.625rem;
+  font-size: 1.5625rem;
   cursor: pointer;
+  background-color: rgba(214, 46, 51, 0.6);
+  color: #fff;
 }
 
-.footer-text {
+.singers .info:not(:nth-child(2)) {
+  display: none;
+}
+
+.info {
   background-color: #ccc;
 }
 
